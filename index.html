@@ -1,21 +1,131 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Prontuário Eletrônico</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    .hero {
+      background-image: url('img/Veronica'); /* caminho da imagem */
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.7);
+      overflow: hidden;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 700px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background: #0066cc;
+      color: white;
+      transition: .3s ease;
+    }
+
+    .btn:hover {
+      background: #004a99;
+    }
+
+    /* mensagem flutuante */
+    .welcome-msg {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(0, 102, 204, 0.9);
+      color: white;
+      padding: 15px 25px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      z-index: 3;
+    }
+
+    .welcome-msg.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      p { font-size: 1rem; }
+      .btn { width: 100%; }
+      .hero { padding: 0 20px;}
+      .welcome-msg { top: 10px; right: 10px; font-size: 1rem; padding: 10px 15px; }
+    }
+  </style>
 </head>
+
 <body>
-  <div class="container">
-    <h1>Prontuário Eletrônico - Login</h1>
-    <form id="login-form">
-      <input type="text" id="profissional" placeholder="Nome do profissional" required>
-      <button type="submit">Entrar</button>
-    </form>
+  <div class="hero">
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+      <h1>Prontuário Eletrônico para Atendimento Profissional</h1>
+      <p>Organize atendimentos, cadastre pacientes e registre prontuários de forma rápida e segura.</p>
+      <button class="btn" onclick="window.location.href='login.html'">Começar Agora</button>
+    </div>
+
+    <!-- mensagem de boas-vindas -->
+    <div class="welcome-msg" id="welcome-msg">Seja bem-vinda Dra. Veronica!</div>
   </div>
-  <script src="script.js"></script>
+
+  <script>
+    // exibir a mensagem flutuante ao carregar e desaparecer após 5s
+    window.addEventListener('load', () => {
+      const msg = document.getElementById('welcome-msg');
+      msg.classList.add('show');
+      setTimeout(() => {
+        msg.classList.remove('show');
+      }, 5000);
+    });
+  </script>
 </body>
 </html>
