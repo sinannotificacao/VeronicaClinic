@@ -11,13 +11,38 @@ body, html {
   width: 100%;
   height: 100%;
   font-family: Arial, sans-serif;
-  overflow: hidden;
+}
+
+header.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.7);
+  z-index: 1000;
+  padding: 10px 0;
+}
+
+header.navbar nav {
+  display: flex;
+  justify-content: center;
+}
+
+header.navbar nav a {
+  color: white;
+  margin: 0 20px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+header.navbar nav a:hover {
+  color: #00aaff;
 }
 
 .hero {
-  background-image: url('img/Veronica2.jpeg'); /* referência corrigida */
+  background-image: url('img/Veronica2.jpeg');
   background-size: cover;
-  background-position: 50% 45%; /* ajuste vertical para rosto visível */
+  background-position: 50% 45%;
   background-repeat: no-repeat;
   width: 100%;
   height: 100vh;
@@ -83,6 +108,14 @@ body, html {
 </style>
 </head>
 <body>
+
+<header class="navbar">
+  <nav>
+    <a href="sobre.html">Sobre</a>
+    <a href="contato.html">Contato</a>
+    <a href="quem_somos.html">Quem Somos</a>
+  </nav>
+</header>
 
 <div class="hero">
   <div class="overlay"></div>
