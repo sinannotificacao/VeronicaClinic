@@ -1,128 +1,120 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Prontuário Eletrônico</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Prontuário Eletrônico</title>
 
-  <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      font-family: Arial, sans-serif;
-    }
+<style>
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+}
 
-    .hero {
-      background-image: url('img/Veronica.jpeg'); /* extensão JPEG */
-      background-size: cover;
-      background-position: center 30%; /* foco no rosto */
-      width: 100%;
-      height: 100vh;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.7);
-      overflow: hidden;
-    }
+.hero {
+  background-image: url('img/Veronica.jpeg');
+  background-size: cover;
+  background-position: center 30%;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: 1;
-    }
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(135, 206, 250, 0.2);
+  z-index: 1;
+}
 
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      max-width: 700px;
-    }
+.cloud {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  width: 200px;
+  height: 100px;
+  top: 10%;
+  animation: floatCloud 60s linear infinite;
+  z-index: 2;
+}
 
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
+.cloud:nth-child(2) { top: 30%; width: 250px; height: 120px; animation-duration: 80s; }
+.cloud:nth-child(3) { top: 60%; width: 180px; height: 90px; animation-duration: 100s; }
 
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-    }
+@keyframes floatCloud {
+  0% { left: -250px; }
+  100% { left: 100%; }
+}
 
-    .btn {
-      padding: 15px 30px;
-      font-size: 1.1rem;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      background: #0066cc;
-      color: white;
-      transition: .3s ease;
-    }
+.hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 600px;
+  color: #ffffff;
+}
 
-    .btn:hover {
-      background: #004a99;
-    }
+.hero-content h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+}
 
-    .welcome-msg {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: rgba(0, 102, 204, 0.9);
-      color: white;
-      padding: 15px 25px;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      opacity: 0;
-      transform: translateY(-20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-      z-index: 3;
-    }
+.hero-content .welcome {
+  font-size: 1.5rem;
+  padding: 15px 25px;
+  background: rgba(173, 216, 230, 0.6);
+  border-radius: 15px;
+  display: inline-block;
+  text-shadow: none;
+  margin-bottom: 20px;
+}
 
-    .welcome-msg.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
+.hero-content .btn {
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #0066cc;
+  color: white;
+  transition: .3s ease;
+}
 
-    @media (max-width: 768px) {
-      h1 { font-size: 2rem; }
-      p { font-size: 1rem; }
-      .btn { width: 100%; }
-      .hero { padding: 0 20px;}
-      .welcome-msg { top: 10px; right: 10px; font-size: 1rem; padding: 10px 15px; }
-    }
-  </style>
+.hero-content .btn:hover {
+  background: #004a99;
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 { font-size: 2rem; }
+  .hero-content .welcome { font-size: 1.2rem; padding: 10px 15px; }
+  .hero-content .btn { width: 100%; }
+}
+</style>
 </head>
 
 <body>
-  <div class="hero">
-    <div class="overlay"></div>
+<div class="hero">
+  <div class="overlay"></div>
+  <div class="cloud"></div>
+  <div class="cloud"></div>
+  <div class="cloud"></div>
 
-    <div class="hero-content">
-      <h1>Prontuário Eletrônico para Atendimento Profissional</h1>
-      <p>Organize atendimentos, cadastre pacientes e registre prontuários de forma rápida e segura.</p>
-      <button class="btn" onclick="window.location.href='login.html'">Começar Agora</button>
-    </div>
-
-    <div class="welcome-msg" id="welcome-msg">Seja bem-vinda Dra. Veronica!</div>
+  <div class="hero-content">
+    <h1>Prontuário Eletrônico para Atendimento Profissional</h1>
+    <div class="welcome">Seja bem-vinda, Dra. Veronica!</div>
+    <button class="btn" onclick="window.location.href='login.html'">Começar Agora</button>
   </div>
-
-  <script>
-    window.addEventListener('load', () => {
-      const msg = document.getElementById('welcome-msg');
-      msg.classList.add('show');
-      setTimeout(() => {
-        msg.classList.remove('show');
-      }, 5000);
-    });
-  </script>
+</div>
 </body>
 </html>
