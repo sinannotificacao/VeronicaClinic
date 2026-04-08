@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+<h1>Dashboard</h1>
+<p id="user-info"></p>
+</div>
+<script>
+const nome = localStorage.getItem('profissionalNome');
+const especialidade = localStorage.getItem('profissionalEspecialidade');
+document.getElementById('user-info').textContent = `Bem-vindo(a) ${nome} - ${especialidade}`;
+</script>
+</body>
+</html>

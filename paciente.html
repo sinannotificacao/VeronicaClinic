@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paciente - Prontuário Eletrônico</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Registro de Atendimento</h1>
+    <form id="atendimento-form">
+      <input type="text" id="paciente-nome" placeholder="Nome do paciente" required>
+      <textarea id="observacoes" placeholder="Observações do atendimento" required></textarea>
+      <button type="submit">Registrar Atendimento</button>
+    </form>
+    <h2>Histórico de Atendimentos</h2>
+    <div id="historico"></div>
+  </div>
+  <script src="paciente.js"></script>
+</body>
+</html>
