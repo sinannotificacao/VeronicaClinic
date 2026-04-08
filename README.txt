@@ -1,4 +1,4 @@
-Geisiany Clinic - site pronto
+Veronica Clinic - site pronto
 
 Arquivos incluídos:
 - index.html
